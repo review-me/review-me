@@ -1,0 +1,7 @@
+block('head')(
+
+    content()(function() {
+        return 'HEAD';
+    })
+
+);
