@@ -1,0 +1,31 @@
+block('layout-pulls')(
+
+    js()(true),
+
+    content()(function() {
+        var pulls = [
+            {
+                title: 'My pull!',
+                date: '10.20.2015'
+            },
+            {
+                title: 'My pull!',
+                date: '10.20.2015'
+            },
+            {
+                title: 'My pull!',
+                date: '10.20.2015'
+            },
+            {
+                title: 'My pull!',
+                date: '10.20.2015'
+            }
+        ];
+
+        return {
+            block: 'pulls-list',
+            items: pulls
+        };
+    })
+
+);

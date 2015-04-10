@@ -1,0 +1,14 @@
+block('pull-request')(
+
+    js()(true),
+
+    content()(function() {
+        var pull = this.ctx.data;
+
+        return [
+            { elem: 'name', content: pull.title },
+            { elem: 'created', content: pull.date }
+        ];
+    })
+
+);

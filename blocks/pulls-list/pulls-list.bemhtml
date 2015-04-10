@@ -1,0 +1,14 @@
+block('pulls-list')(
+
+    js()(true),
+
+    content()(function() {
+        return this.ctx.items.map(function(pull) {
+            return {
+                block: 'pull-request',
+                data: pull
+            }
+        });
+    })
+
+);
