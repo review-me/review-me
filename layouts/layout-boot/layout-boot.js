@@ -35,13 +35,13 @@ modules.define(
                         });
                     }
 
-                    /*director
+                    director
                         .Router({
                             '/': this._renderLayout('layout-index'),
                             '/users/:user': this._renderLayout('layout-user'),
                             '/pulls/': this._renderLayout('layout-pulls')
                         })
-                        .init();*/
+                        .init();
                 }
             }
         },
