@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>review</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+      <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    </head>
+
+    <body>
+        <h1>review</h1>
+        <a href="https://github.com/login/oauth/authorize?client_id=5f504a69a6d2ddd3c0fd" >HELLO</a>
+        <script type="text/javascript">
+            var requestParams,
+                getGETParams = function parseGetParams() {
+                   var $_GET = {};
+                   var __GET = window.location.search.substring(1).split("&");
+                   for(var i=0; i<__GET.length; i++) {
+                      var getVar = __GET[i].split("=");
+                      $_GET[getVar[0]] = typeof(getVar[1])=="undefined" ? "" : getVar[1];
+                   }
+                   return $_GET;
+                },
+                codeReceived = getGETParams().code;
+
+                if (codeReceived) {
+                    requestParams = {
+                        client_id: "5f504a69a6d2ddd3c0fd",
+                        client_secret: "41967c2da70bd512627610883a4ea5e23ded9420",
+                        code: codeReceived
+                    };
+
+                    console.log(requestParams);
+
+                    $.post("https://github.com/login/oauth/access_token", requestParams, "jsonp")
+                        .done(function() {
+                            console.log(arguments);
+                        });
+
+                    $.ajax({
+                         method: 'POST',
+                         url:"https://github.com/login/oauth/access_token",
+                         data: requestParams,
+                         dataType: 'jsonp', // Notice! JSONP <-- P (lowercase)
+                         crossDomain: true,
+                         success:function(json){
+                             // do stuff with json (in this case an array)
+                             alert("Success");
+                         },
+                         error:function(err){
+                             alert("Error");
+                             console.log(err);
+                         }
+                    });
+
+                    /*$.ajax({
+                        type: "POST",
+                        url: "https://github.com/login/oauth/access_token",
+                        data: requestParams,
+                        success: function(data) {
+                            debugger;
+                        },
+                        error: function(data) {
+                            debugger;
+                        },
+                        dataType: "jsonp"
+                    });*/
+
+                }
+        </script>
+    </body>
+
+</html>
