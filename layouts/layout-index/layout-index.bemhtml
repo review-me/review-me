@@ -5,8 +5,9 @@ block('layout-index')(
     content()(function() {
         return {
             block : 'button',
-            mods : { theme : 'islands', size : 'xl' },
-            text : 'review'
+            mods : { theme : 'islands', size : 'l', view: 'action', type: 'link' },
+            url: '#',
+            text : 'Авторизоваться на GitHub'
         };
     })
 
