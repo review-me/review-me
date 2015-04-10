@@ -124,7 +124,8 @@ app.get('/oauthCallback', function(req, res) {
     res.render('error', { errorMessage: 'Invalid auth response received.'});
     return;
   }
-  var query = new Parse.Query(TokenRequest);
+  var query = new Parse.Query(TokenRequest),
+      userToken;
   /**
    * Check if the provided state object exists as a TokenRequest
    * Use the master key as operations on TokenRequest are protected
@@ -162,11 +163,11 @@ app.get('/oauthCallback', function(req, res) {
       return Parse.Promise.error("Unable to parse GitHub data");
     }
   }).then(function(user) {
-    /**
-     * Render a page which sets the current user on the client-side and then
-     *   redirects to /main
-     */
-    res.render('store_auth', { sessionToken: user.getSessionToken() });
+    var query = new Parse.Query(TokenStorage);
+
+    // res.render('store_auth', { sessionToken: user.getSessionToken() });
+       res.redirect(301, 'https://review-me.github.io/review-me/?token=' + JSON.stringify(user) );
+
   }, function(error) {
     /**
      * If the error is an object error (e.g. from a Parse function) convert it
