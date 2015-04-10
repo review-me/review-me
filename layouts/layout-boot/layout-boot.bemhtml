@@ -4,9 +4,9 @@ block('layout-boot')(
 
     content()(function() {
         return [
-            { block: 'head', content: 'head' },
+            { block: 'head' },
             { elem: 'placeholder' },
-            { block: 'footer', content: 'footer' }
+            { block: 'footer' }
           ]
     })
 
