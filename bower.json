@@ -1,0 +1,11 @@
+{
+  "name": "riview-me",
+  "version": "0.1.0",
+  "license": "MIT",
+  "dependencies": {
+    "bem-core": "^2.6.0",
+    "bem-components": "^2.1.0",
+    "lodash": "^3.6.0",
+    "director": "^1.2.7"
+  }
+}

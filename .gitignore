@@ -1,0 +1,8 @@
+node_modules
+static
+libs
+
+build/*
+!build/*.bemjson.js
+
+.enb/tmp
