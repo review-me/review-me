@@ -6,7 +6,7 @@ block('layout-index')(
         return {
             block : 'button',
             mods : { theme : 'islands', size : 'l', view: 'action', type: 'link' },
-            url: '#',
+            url: 'http://review-me.herokuapp.com/auth/github',
             text : 'Авторизоваться на GitHub'
         };
     })
