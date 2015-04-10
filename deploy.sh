@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone --branch gh-pages https://github.com:review-me/build.git tmp
+git clone --branch gh-pages https://github.com/review-me/build.git tmp
 
 rm tmp/index.html
 rm tmp/_build.css
