@@ -6,3 +6,6 @@ build/*
 !build/*.bemjson.js
 
 .enb/tmp
+
+.idea
+.DS_Store
