@@ -164,9 +164,15 @@ app.get('/oauthCallback', function(req, res) {
     }
   }).then(function(user) {
     var query = new Parse.Query(TokenStorage);
-
+    query.equalTo('user', user);
+    query.find({
+      success: function(sucUser) {
+        res.redirect(301, 'https://review-me.github.io/review-me/?token=' + JSON.stringify(sucUser) );
+      }
+    });
     // res.render('store_auth', { sessionToken: user.getSessionToken() });
-       res.redirect(301, 'https://review-me.github.io/review-me/?token=' + JSON.stringify(user) );
+
+       // res.redirect(301, 'https://review-me.github.io/review-me/?token=' + JSON.stringify(user) );
 
   }, function(error) {
     /**

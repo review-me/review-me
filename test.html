@@ -41,16 +41,43 @@
   <script type="text/javascript">
     Parse.initialize("PnrykHJ0SntXuahnnt7hhUHPrgo8gJTI5CNbFBmu", "JY5anOdQbYnBPYqFn8voLX02aq8mIhfNz9BqghgH");
 
-    var TestObject = Parse.Object.extend("TestObject");
-    var testObject = new TestObject();
-      testObject.save({foo: "hello world"}, {
-      success: function(object) {
-        $(".success").show();
-      },
-      error: function(model, error) {
-        $(".error").show();
-      }
-    });
+    // var query = new Parse.Query(TestObject);
+    // query.equalTo('foo', 'hello world');
+    // // query.equalTo('githubId', 731113);
+    // query.find({
+    //   success: function(object) {
+    //     console.log(object);
+    //   },
+    //   error: function(data) {
+    //     console.error(data);
+    //   }
+    // });
+
+  var user = new Parse.User();
+  var TokenStorage = Parse.Object.extend("TokenStorage");
+  user.id = '6GPx6m2yFy';
+
+  var query = new Parse.Query(TokenStorage);
+
+  query.include('user');
+  query.equalTo('user', user);
+  // find all the women
+  query.find({
+    success: function(women) {
+      console.log(women);
+    }
+  });
+
+    // var TestObject = Parse.Object.extend("TestObject");
+    // var testObject = new TestObject();
+    //   testObject.save({foo: "hello world"}, {
+    //   success: function(object) {
+    //     $(".success").show();
+    //   },
+    //   error: function(model, error) {
+    //     $(".error").show();
+    //   }
+    // });
   </script>
 </body>
 
