@@ -3,6 +3,7 @@
         'layout-index',
         'layout-user',
         'layout-pulls',
-        'head'
+        'head',
+        'footer'
     ]
 });
