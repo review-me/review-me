@@ -1,0 +1,13 @@
+block('layout-boot')(
+
+    js()(true),
+
+    content()(function() {
+        return [
+            { block: 'head', content: 'head' },
+            { elem: 'placeholder' },
+            { block: 'footer', content: 'footer' }
+          ]
+    })
+
+);

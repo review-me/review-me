@@ -1,7 +1,7 @@
 modules.define(
     'layout-boot',
-    ['i-bem__dom', 'director', 'lodash', 'bh'],
-    function(provide, BEMDOM, director, _, bh) {
+    ['i-bem__dom', 'director', 'lodash', 'BEMHTML'],
+    function(provide, BEMDOM, director, _, BEMHTML) {
 
     provide(BEMDOM.decl(this.name, {
         onSetMod: {
@@ -21,7 +21,7 @@ modules.define(
         },
         _renderLayout: function(layoutName) {
             return function() {
-                this._curr = BEMDOM.replace(this._curr, bh.apply({
+                this._curr = BEMDOM.replace(this._curr, BEMHTML.apply({
                     block: layoutName,
                     js: _.toArray(arguments)
                 }));

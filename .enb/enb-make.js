@@ -7,9 +7,8 @@ var levels = require('enb-bem-techs/techs/levels'),
     css = require('enb-stylus/techs/css-stylus'),
     js = require('enb-diverse-js/techs/browser-js'),
     ym = require('enb-modules/techs/prepend-modules'),
-    bhServerInclude = require('enb-bh/techs/bh-server-include'),
-    bhYm = require('enb-bh/techs/bh-client-module'),
-    html = require('enb-bh/techs/html-from-bemjson'),
+    bemhtml = require('enb-bemxjst/techs/bemhtml'),
+    html = require('enb-bemxjst/techs/html-from-bemjson'),
     mergeFiles = require('enb/techs/file-merge'),
     borschik = require('enb-borschik/techs/borschik'),
     director = require('./techs/ym-director'),
@@ -39,13 +38,13 @@ module.exports = function(config) {
             }],
             [director, {target: '?.ym-director.js'}],
             [lodash, {target: '?.ym-lodash.js'}],
-            [bhServerInclude, {jsAttrName: 'data-bem', jsAttrScheme: 'json'}],
-            [bhYm, {target : '?.client.bh.js', jsAttrName: 'data-bem', jsAttrScheme: 'json'}],
+            [bemhtml, { devMod: false }],
+            [bemhtml, {target : '?.client.bemhtml.js', devMode: false }],
             [mergeFiles, {
-                target : '?.browser+bh+director+lodash.js',
+                target : '?.browser+bemhtml+director+lodash.js',
                 sources : [
                     '?.ym.js',
-                    '?.client.bh.js',
+                    '?.client.bemhtml.js',
                     '?.ym-director.js',
                     '?.ym-lodash.js'
                 ]
@@ -57,7 +56,7 @@ module.exports = function(config) {
             nodeConfig.addTechs([
                 [
                     require('enb/techs/file-copy'),
-                    {sourceTarget: '?.browser+bh+director+lodash.js', destTarget: '_?.js'}
+                    {sourceTarget: '?.browser+bemhtml+director+lodash.js', destTarget: '_?.js'}
                 ],
                 [
                     require('enb/techs/file-copy'),
@@ -68,7 +67,7 @@ module.exports = function(config) {
 
         nodeConfig.mode('prod', function(nodeConfig) {
             nodeConfig.addTechs([
-                [borschik, { source : '?.browser+bh+director+lodash.js', target : '_?.js' }],
+                [borschik, { source : '?.browser+bemhtml+director+lodash.js', target : '_?.js' }],
                 [borschik, { source : '?.prefix.css', target : '_?.css', freeze: true}]
             ]);
         });

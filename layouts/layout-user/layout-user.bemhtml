@@ -1,0 +1,9 @@
+block('layout-user')(
+
+    js()(true),
+
+    content()(function() {
+        return 'this is user content! userId = ' + this.ctx.js[0];
+    })
+
+);

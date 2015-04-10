@@ -1,0 +1,13 @@
+block('layout-index')(
+
+    js()(true),
+
+    content()(function() {
+        return {
+            block : 'button',
+            mods : { theme : 'islands', size : 'xl' },
+            text : 'review'
+        };
+    })
+
+);
