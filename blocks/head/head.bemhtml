@@ -1,7 +1,7 @@
 block('head')(
 
     content()(function() {
-        return 'HEAD';
+        return 'Review-me';
     })
 
 );
