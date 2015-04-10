@@ -18,12 +18,12 @@ modules.define(
                            return $_GET;
                         },
                         params = getGETParams();
-
+debugger;
                     this._curr = this.findElem('placeholder');
                     this._renderLayout('layout-index')();
 
                     if (params.token) {
-                        BEMDOM.replace('Login: ' + params.name);
+                        BEMDOM.replace(this._curr ,'Login: ' + params.name);
 
                         $.get("https://api.github.com/users/" + params.login + "/repos", function(data) {
                             vow.all(data.map(function(item) {
