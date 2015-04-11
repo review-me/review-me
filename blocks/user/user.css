@@ -38,3 +38,8 @@
 
     font-size: 15px;
 }
+
+.user__user-login .link
+{
+    outline: none;
+}

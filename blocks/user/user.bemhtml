@@ -28,6 +28,10 @@ block('user')(
             content: [
                 {
                     elem: 'user-login',
+                    content: {
+                        block : 'link',
+                        mods : { theme : 'islands', size : 'm' }
+                    }
                 },
                 {
                     elem: 'user-pic'

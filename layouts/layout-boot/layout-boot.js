@@ -23,31 +23,30 @@ modules.define(
                         // показываем паранжу и спиннер
                         this.setMod('progress', 'yes');
 
-                        $.get("https://api.github.com/user?token=" + userInSrorage.token, function(userData) {
+                        $.get("https://api.github.com/user?access_token=" + userInSrorage.token, function(userData) {
                             // получить сылку на аватарку
-                            // у нас проблемы, по этому токену говорит, что мне не авторизованы,
-                            // нужно лезить в документацию
-                        });
 
-                        // идем за данными про pr'ы юзера
-                        $.get("https://api.github.com/users/" + userInSrorage.login + "/repos", function(data) {
-                            vow.all(data.map(function(item) {
-                                return $.get("https://api.github.com/repos/" + userInSrorage.login + "/" + item.name + "/pulls");
-                            })).spread(function() {
-                                //  обновить и показать блок пользователя
-                                userBlock.setUser(userInSrorage.login);
-                                userBlock.setMod('type', 'user');
+                            // идем за данными про pr'ы юзера
+                            $.get("https://api.github.com/users/" + userInSrorage.login + "/repos", function(data) {
+                                vow.all(data.map(function(item) {
+                                    return $.get("https://api.github.com/repos/" + userInSrorage.login + "/" + item.name + "/pulls");
+                                })).spread(function() {
+                                    //  обновить и показать блок пользователя
+                                    userBlock.setUser(userInSrorage.login, userData.html_url, userData.avatar_url);
+                                    userBlock.setMod('type', 'user');
 
-                                // обновить  view
-                                that._content = BEMDOM.replace(that._content, BEMHTML.apply({
-                                    block: 'layout-pulls',
-                                    items: that._glueArs(arguments)
-                                }));
+                                    // обновить  view
+                                    that._content = BEMDOM.replace(that._content, BEMHTML.apply({
+                                        block: 'layout-pulls',
+                                        items: that._glueArs(arguments)
+                                    }));
 
-                                // спрятать спиннер и паранжу
-                                that.delMod('progress');
+                                    // спрятать спиннер и паранжу
+                                    that.delMod('progress');
+                                });
                             });
                         });
+
                     } else {
                         if (GETParams.token) {
                             localStorage.setItem('user', JSON.stringify({
@@ -86,14 +85,14 @@ modules.define(
             }
         },
 
-        /*_renderLayout: function(layoutName) {
+        _renderLayout: function(layoutName) {
             return function() {
                 this._curr = BEMDOM.replace(this._curr, BEMHTML.apply({
                     block: layoutName,
                     js: _.toArray(arguments)
                 }));
             }.bind(this);
-        },*/
+        },
 
         _getGETParams: function() {
            var $_GET = {},

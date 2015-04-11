@@ -5,6 +5,11 @@ modules.define(
 
     provide(BEMDOM.decl(this.name, {
         onSetMod: {
+            js: {
+                inited: function() {
+                    this._usernameLink = this.findBlockInside(this.elem('user-login'), 'link');
+                }
+            },
             type: {
                 login: function() {
                     this
@@ -19,8 +24,9 @@ modules.define(
             }
         },
 
-        setUser: function(login, picUrl) {
-            this.elem('user-login').text(login);
+        setUser: function(text, url, picUrl) {
+            this._usernameLink.setUrl(url);
+            this._usernameLink.domElem.text(text);
 
             if (picUrl) {
                 this.elem('user-pic').css('background', 'url(' + picUrl + ')');

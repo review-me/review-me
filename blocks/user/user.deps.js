@@ -8,6 +8,14 @@
                 view: 'action',
                 type: 'link'
             }
+        },
+        {
+            block : 'link',
+            mods : {
+                theme : 'islands',
+                size : 'm',
+                focused: true
+            }
         }
     ]
 });
