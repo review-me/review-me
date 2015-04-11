@@ -1,0 +1,39 @@
+block('user')(
+
+    js()(true),
+
+    content()([
+        {
+            elem: 'login-button',
+            elemMods: {
+                visibility: 'hidden'
+            },
+            content: {
+                block : 'button',
+                mods : {
+                    theme : 'islands',
+                    size : 'l',
+                    view: 'action',
+                    type: 'link'
+                },
+                url: 'http://review-me.herokuapp.com/auth/github',
+                text : 'Авторизоваться на GitHub'
+            }
+        },
+        {
+            elem: 'user-info',
+            elemMods: {
+                visibility: 'hidden'
+            },
+            content: [
+                {
+                    elem: 'user-login',
+                },
+                {
+                    elem: 'user-pic'
+                }
+            ]
+        }
+    ])
+
+);

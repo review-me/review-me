@@ -6,6 +6,11 @@
         'layout-user',
         'layout-pulls',
         'head',
-        'footer'
+        'footer',
+        {
+            block : 'spin',
+            mods : { theme : 'islands', size : 'm', visible : true }
+        },
+        'paranja'
     ]
 });

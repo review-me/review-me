@@ -3,3 +3,16 @@
     width: 980px;
     margin: 0 auto;
 }
+
+.layout-boot .spin_theme_islands.spin_visible
+{
+    z-index: 2;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}

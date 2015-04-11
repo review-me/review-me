@@ -1,0 +1,22 @@
+.paranja
+{
+    z-index: -1;
+
+    opacity: 0;
+
+    position: fixed;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: #fff;
+}
+
+.paranja_visible_yes
+{
+    z-index: 1;
+
+    opacity: 0.6;
+}

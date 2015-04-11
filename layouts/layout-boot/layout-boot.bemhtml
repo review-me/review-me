@@ -1,12 +1,30 @@
 block('layout-boot')(
 
+    mix()({ block: 'i-helpers' }),
+
     js()(true),
 
     content()(function() {
         return [
-            { block: 'head' },
-            { elem: 'placeholder' },
-            { block: 'footer' }
+            {
+                block: 'head'
+            },
+            {
+                elem: 'placeholder'
+            },
+            {
+                block: 'footer'
+            },
+            {
+                block : 'spin',
+                mods : {
+                    theme : 'islands',
+                    size : 'm'
+                }
+            },
+            {
+                block: 'paranja'
+            }
           ]
     })
 

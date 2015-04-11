@@ -1,0 +1,40 @@
+.user
+{
+    display: inline-block;
+
+    padding-right: 3px;
+}
+
+.user__login-button_visibility_hidden,
+.user__user-info_visibility_hidden
+{
+    display: none;
+}
+
+.user__user-info
+{
+    padding-right: 50px;
+}
+
+.user__user-pic
+{
+    position: absolute;
+    top: -3px;
+    right: 3px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+
+    height: 35px;
+    width: 35px;
+
+    background-size: 100%;
+}
+
+.user__user-login
+{
+    display: inline-block;
+
+    font-size: 15px;
+}

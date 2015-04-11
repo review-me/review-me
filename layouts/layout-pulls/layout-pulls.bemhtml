@@ -3,28 +3,15 @@ block('layout-pulls')(
     js()(true),
 
     content()(function() {
-        var pulls = [
-            {
-                title: 'My pull!',
-                date: '10.20.2015'
-            },
-            {
-                title: 'My pull!',
-                date: '10.20.2015'
-            },
-            {
-                title: 'My pull!',
-                date: '10.20.2015'
-            },
-            {
-                title: 'My pull!',
-                date: '10.20.2015'
-            }
-        ];
-
         return {
             block: 'pulls-list',
-            items: pulls
+            items: this.ctx.items.map(function(item) {
+                return {
+                    title: item.title,
+                    body: item.body,
+                    date: item.updated_at
+                };
+            })
         };
     })
 

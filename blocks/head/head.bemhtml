@@ -1,7 +1,12 @@
 block('head')(
 
     content()(function() {
-        return 'Review-me';
+        return [
+            'Review-me',
+            {
+                block: 'user'
+            }
+        ];
     })
 
 );
