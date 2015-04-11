@@ -3,6 +3,32 @@ block('layout-pulls')(
     js()(true),
 
     content()(function() {
+        var pulls = [
+            {
+                html_url: "https://github.com/tet4enko/review-me-test/pull/1",
+                body: 'My pull!',
+                number: '3',
+                head: {
+                    label: 'belyanskii:patch-1',
+                    user: {
+                        login: 'belyanskii'
+                    },
+                    repo: {
+                        html_url: 'https://github.com/belyanskii/review-me-test'
+                    }
+                },
+                base: {
+                    label: 'tet4enko:master',
+                    user: {
+                        login: 'tet4enko'
+                    },
+                    repo: {
+                        html_url: 'https://github.com/tet4enko/review-me-test'
+                    }
+                }
+            }
+        ];
+
         return {
             block: 'pulls-list',
             items: this.ctx.items.map(function(item) {
