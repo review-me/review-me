@@ -1,4 +1,49 @@
 .pull-request
 {
-    display: inline-block;
+    display: table;
+
+    width: 80%;
+    margin: 0 auto;
+
+    border-collapse: collapse;
+
+    border: 1px solid #e5e5e5;
+}
+
+.pull-request__cell
+{
+    display: table-cell;
+
+    padding: 5px 15px;
+
+    vertical-align: middle;
+
+    border: 1px dotted #cdcdcd;
+}
+
+.pull-request__cell_from-to_yes
+{
+    padding: 0 5px;
+
+    white-space: nowrap;
+
+    color: #336479;
+    border-radius: 3px;
+    background-color: #e8f0f8;
+}
+
+.pull-request__cell_from-to_yes .pull-request__title
+{
+    color: #598a9f;
+}
+
+.pull-request__avatar
+{
+    display: table-cell;
+    border-radius: 50%;
+
+    height: 35px;
+    width: 35px;
+
+    background-size: 100%;
 }

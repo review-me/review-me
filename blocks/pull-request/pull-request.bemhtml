@@ -4,11 +4,44 @@ block('pull-request')(
 
     content()(function() {
         var pull = this.ctx.data;
-
-        return [
-            { elem: 'name', content: pull.title },
-            { elem: 'created', content: pull.date }
-        ];
+        console.log(pull);
+        return {
+            elem: 'row',
+            content: [
+                {
+                    elem: 'avatar',
+                    attrs: {
+                        style: 'background: url(' + pull.head.user.avatar_url + '); background-size: 100%'
+                    }
+                },
+                {
+                    elem: 'cell',
+                    content: pull.title
+                },
+                {
+                    elem: 'cell',
+                    content: pull.number
+                },
+                {
+                    elem: 'cell',
+                    mods: { 'from-to': 'yes' },
+                    content: pull.base.label
+                },
+                {
+                    elem: 'cell',
+                    mods: { 'from-to': 'yes' },
+                    content: pull.head.label
+                }
+            ]
+        };
     })
 
 );
+
+block('pull-request').elem('cell').content()(function() {
+    return [{
+        elem: 'title',
+        tag: 'span',
+        content: this.ctx.content
+    }]
+});

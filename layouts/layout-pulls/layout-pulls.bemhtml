@@ -31,13 +31,7 @@ block('layout-pulls')(
 
         return this.ctx.items.length ? {
             block: 'pulls-list',
-            items: this.ctx.items.map(function(item) {
-                return {
-                    title: item.title,
-                    body: item.body,
-                    date: item.updated_at
-                };
-            })
+            items: this.ctx.items
         } : 'NO PULLS';
     })
 
