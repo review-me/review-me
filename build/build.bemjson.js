@@ -9,7 +9,12 @@
         {elem: 'meta', attrs: {name: 'keywords', content: ''}},
         {elem: 'meta', attrs: {name: 'viewport', content: 'initial-scale=1, user-scalable=no'}}
     ],
-    content: {
-        block: 'layout-boot'
-    }
+    content: [
+        {
+            block: 'layout-boot'
+        },
+        {
+            block: 'contributors'
+        }
+    ]
 });
