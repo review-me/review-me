@@ -1,132 +1,34 @@
 block('contributors')(
 
-    js()(true),
+    content()([
+        {
+            block : 'spin',
+            mods : {
+                theme : 'islands',
+                size : 's'
+            }
+        },
+        {
+            elem: 'items'
+        }
+    ]),
 
-    content()(function() {
-        var items = this.ctx.items
-            || [
-                {
-                "login": "tadatuta",
-                "id": 475746,
-                "avatar_url": "https://avatars.githubusercontent.com/u/475746?v=3",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/tadatuta",
-                "html_url": "https://github.com/tadatuta",
-                "followers_url": "https://api.github.com/users/tadatuta/followers",
-                "following_url": "https://api.github.com/users/tadatuta/following{/other_user}",
-                "gists_url": "https://api.github.com/users/tadatuta/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/tadatuta/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/tadatuta/subscriptions",
-                "organizations_url": "https://api.github.com/users/tadatuta/orgs",
-                "repos_url": "https://api.github.com/users/tadatuta/repos",
-                "events_url": "https://api.github.com/users/tadatuta/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/tadatuta/received_events",
-                "type": "User",
-                "site_admin": false,
-                "contributions": 74
-                },
-                {
-                "login": "narqo",
-                "id": 88045,
-                "avatar_url": "https://avatars.githubusercontent.com/u/88045?v=3",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/narqo",
-                "html_url": "https://github.com/narqo",
-                "followers_url": "https://api.github.com/users/narqo/followers",
-                "following_url": "https://api.github.com/users/narqo/following{/other_user}",
-                "gists_url": "https://api.github.com/users/narqo/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/narqo/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/narqo/subscriptions",
-                "organizations_url": "https://api.github.com/users/narqo/orgs",
-                "repos_url": "https://api.github.com/users/narqo/repos",
-                "events_url": "https://api.github.com/users/narqo/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/narqo/received_events",
-                "type": "User",
-                "site_admin": false,
-                "contributions": 12
-                },
-                {
-                "login": "ilyar",
-                "id": 761285,
-                "avatar_url": "https://avatars.githubusercontent.com/u/761285?v=3",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/ilyar",
-                "html_url": "https://github.com/ilyar",
-                "followers_url": "https://api.github.com/users/ilyar/followers",
-                "following_url": "https://api.github.com/users/ilyar/following{/other_user}",
-                "gists_url": "https://api.github.com/users/ilyar/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/ilyar/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/ilyar/subscriptions",
-                "organizations_url": "https://api.github.com/users/ilyar/orgs",
-                "repos_url": "https://api.github.com/users/ilyar/repos",
-                "events_url": "https://api.github.com/users/ilyar/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/ilyar/received_events",
-                "type": "User",
-                "site_admin": false,
-                "contributions": 11
-                },
-                {
-                "login": "arikon",
-                "id": 75247,
-                "avatar_url": "https://avatars.githubusercontent.com/u/75247?v=3",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/arikon",
-                "html_url": "https://github.com/arikon",
-                "followers_url": "https://api.github.com/users/arikon/followers",
-                "following_url": "https://api.github.com/users/arikon/following{/other_user}",
-                "gists_url": "https://api.github.com/users/arikon/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/arikon/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/arikon/subscriptions",
-                "organizations_url": "https://api.github.com/users/arikon/orgs",
-                "repos_url": "https://api.github.com/users/arikon/repos",
-                "events_url": "https://api.github.com/users/arikon/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/arikon/received_events",
-                "type": "User",
-                "site_admin": false,
-                "contributions": 6
-                },
-                {
-                "login": "innabelaya",
-                "id": 6286656,
-                "avatar_url": "https://avatars.githubusercontent.com/u/6286656?v=3",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/innabelaya",
-                "html_url": "https://github.com/innabelaya",
-                "followers_url": "https://api.github.com/users/innabelaya/followers",
-                "following_url": "https://api.github.com/users/innabelaya/following{/other_user}",
-                "gists_url": "https://api.github.com/users/innabelaya/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/innabelaya/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/innabelaya/subscriptions",
-                "organizations_url": "https://api.github.com/users/innabelaya/orgs",
-                "repos_url": "https://api.github.com/users/innabelaya/repos",
-                "events_url": "https://api.github.com/users/innabelaya/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/innabelaya/received_events",
-                "type": "User",
-                "site_admin": false,
-                "contributions": 4
+    elem('contributor').content()(function() {
+        return  [
+            {
+                elem: 'contributor-login',
+                content: [
+                    { elem: 'first-letter', tag: 'span', content: this.ctx.login[0] },
+                    this.ctx.login.slice(1)
+                ]
+            },
+            {
+                elem: 'contributor-pic',
+                attrs: {
+                    style: 'background: url(' + this.ctx.avatar + '); background-size: 100%'
+                }
             }
         ];
-
-        return items.map(function(contributor) {
-            return {
-                elem: 'contributor',
-                content: [
-                    {
-                        elem: 'contributor-login',
-                        content: [
-                            { elem: 'first-letter', tag: 'span', content: contributor.login[0] },
-                            contributor.login.slice(1)
-                        ]
-                    },
-                    {
-                        elem: 'contributor-pic',
-                        attrs: {
-                            style: 'background: url(' + contributor.avatar_url + '); background-size: 100%'
-                        }
-                    }
-                ]
-            }
-        });
     })
 
 );
