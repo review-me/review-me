@@ -29,7 +29,7 @@ block('layout-pulls')(
             }
         ];
 
-        return {
+        return this.ctx.items.length ? {
             block: 'pulls-list',
             items: this.ctx.items.map(function(item) {
                 return {
@@ -38,7 +38,7 @@ block('layout-pulls')(
                     date: item.updated_at
                 };
             })
-        };
+        } : 'NO PULLS';
     })
 
 );

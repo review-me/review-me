@@ -13,9 +13,6 @@ block('layout-boot')(
                 elem: 'placeholder'
             },
             {
-                block: 'footer'
-            },
-            {
                 block : 'spin',
                 mods : {
                     theme : 'islands',
