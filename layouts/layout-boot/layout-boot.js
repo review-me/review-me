@@ -27,9 +27,9 @@ modules.define(
                             // получить сылку на аватарку
 
                             // идем за данными про pr'ы юзера
-                            $.get("https://api.github.com/users/" + userInSrorage.login + "/repos", function(data) {
+                            $.get("https://api.github.com/users/" + userInSrorage.login + "/repos?access_token=" + userInSrorage.token, function(data) {
                                 vow.all(data.map(function(item) {
-                                    return $.get("https://api.github.com/repos/" + userInSrorage.login + "/" + item.name + "/pulls");
+                                    return $.get("https://api.github.com/repos/" + userInSrorage.login + "/" + item.name + "/pulls?state=open&access_token=" + userInSrorage.token);
                                 })).spread(function() {
                                     //  обновить и показать блок пользователя
                                     userBlock.setUser(userInSrorage.login, userData.html_url, userData.avatar_url);
