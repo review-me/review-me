@@ -1,52 +1,65 @@
 .contributors
 {
-    margin: 4px;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
 }
 
 .contributors .spin.spin_visible
 {
     position: absolute;
-
     top: 0;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
 
     margin: auto;
 }
 
+.contributors__items
+{
+    margin: 4px;
+}
 .contributors__contributor
 {
     position: relative;
 
     height: 35px;
-
-    padding-right: 40px;
     margin-top: 4px;
+    padding-right: 40px;
+    padding-left: 4px;
+
+    cursor: pointer;
+}
+
+.contributors__contributor:hover
+{
+    background: #fff7db;
 }
 
 .contributors__contributor-login
 {
     font-size: 14px;
+    line-height: 35px;
 
     display: inline-block;
-
-    height: 35px;
-    line-height: 35px;
-    max-width: 90px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     overflow: hidden;
+
+    max-width: 90px;
+    height: 35px;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .contributors__contributor-pic
 {
     position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
 
-    height: 35px;
     width: 35px;
+    height: 35px;
 
     border-radius: 50%;
 }
