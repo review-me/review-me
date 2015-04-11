@@ -113,7 +113,10 @@ block('contributors')(
                 content: [
                     {
                         elem: 'contributor-login',
-                        content: contributor.login
+                        content: [
+                            { elem: 'first-letter', tag: 'span', content: contributor.login[0] },
+                            contributor.login.slice(1)
+                        ]
                     },
                     {
                         elem: 'contributor-pic',
