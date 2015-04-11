@@ -44,12 +44,14 @@ block('pull-request')(
             {
                 elem: 'cell',
                 elemMods: { type: 'from-to' },
-                content: pull.base.label
-            },
-            {
-                elem: 'cell',
-                elemMods: { type: 'from-to' },
-                content: pull.head.label
+                from: {
+                    text: pull.base.label,
+                    link: pull.base.repo.html_url + '/tree/' + pull.base.ref
+                },
+                to: {
+                    text: pull.head.label,
+                    link: pull.head.repo.html_url + '/tree/' + pull.head.ref
+                }
             },
             {
                 elem: 'cell',
@@ -77,4 +79,27 @@ block('pull-request').elem('cell').elemMod('type', 'name').content()(function() 
         target : '_blank',
         content: this.ctx.name
     };
+});
+
+block('pull-request').elem('cell').elemMod('type', 'from-to').content()(function() {
+    var from = this.ctx.from,
+        to = this.ctx.to;
+
+    return [
+        {
+            block: 'link',
+            url: from.link,
+            target : '_blank',
+            content: from.text
+        },
+        {
+            elem: 'from-to-separator'
+        },
+        {
+            block: 'link',
+            url: to.link,
+            target : '_blank',
+            content: to.text
+        }
+    ];
 });
