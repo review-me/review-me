@@ -21,6 +21,11 @@ block('layout-boot')(
             },
             {
                 block: 'paranja'
+            },
+            {
+                block : 'popup',
+                mods : { theme : 'islands', target : 'anchor', autoclosable : true },
+                content : 'popup content'
             }
           ]
     })

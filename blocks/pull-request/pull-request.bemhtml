@@ -1,6 +1,11 @@
 block('pull-request')(
 
-    js()(true),
+    js()(function() {
+        return {
+            repo: this.ctx.data.base.repo.name,
+            login: this.ctx.data.base.user.login
+        };
+    }),
 
     tag()('tr'),
 
