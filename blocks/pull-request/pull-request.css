@@ -1,49 +1,32 @@
 .pull-request
 {
-    display: table;
-
-    width: 80%;
     margin: 0 auto;
-
-    border-collapse: collapse;
-
-    border: 1px solid #e5e5e5;
 }
 
 .pull-request__cell
 {
-    display: table-cell;
-
     padding: 5px 15px;
 
-    vertical-align: middle;
+    box-shadow: 0 -1px 0 0 #e5e5e5 inset;
 
-    border: 1px dotted #cdcdcd;
+    vertical-align: middle;
 }
 
-.pull-request__cell_from-to_yes
+/* FROM _ TO*/
+.pull-request__cell_type_from-to
 {
     padding: 0 5px;
 
     white-space: nowrap;
 
-    color: #336479;
+    color: #598a9f;
     border-radius: 3px;
     background-color: #e8f0f8;
 }
 
-.pull-request__cell_from-to_yes .pull-request__title
+/* MORE */
+
+.pull-request__cell_type_more
 {
-    color: #598a9f;
-}
-
-.pull-request__avatar
-{
-    display: table-cell;
-    border-radius: 50%;
-
-    height: 35px;
-    width: 35px;
-
-    background-size: 100%;
+    text-align: center;
 }

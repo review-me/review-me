@@ -1,4 +1,5 @@
 .pulls-list
 {
-    display: -webkit-box;
+    width: 100%;
+    border-collapse: collapse;
 }

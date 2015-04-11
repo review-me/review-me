@@ -2,6 +2,8 @@ block('pulls-list')(
 
     js()(true),
 
+    tag()('table'),
+
     content()(function() {
         return this.ctx.items.map(function(pull) {
             return {
@@ -10,5 +12,4 @@ block('pulls-list')(
             }
         });
     })
-
 );

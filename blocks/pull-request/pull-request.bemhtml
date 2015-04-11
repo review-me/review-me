@@ -2,46 +2,59 @@ block('pull-request')(
 
     js()(true),
 
+    tag()('tr'),
+
     content()(function() {
         var pull = this.ctx.data;
-        console.log(pull);
-        return {
-            elem: 'row',
-            content: [
-                {
-                    elem: 'avatar',
-                    attrs: {
-                        style: 'background: url(' + pull.head.user.avatar_url + '); background-size: 100%'
-                    }
-                },
-                {
-                    elem: 'cell',
-                    content: pull.title
-                },
-                {
-                    elem: 'cell',
-                    content: pull.number
-                },
-                {
-                    elem: 'cell',
-                    mods: { 'from-to': 'yes' },
-                    content: pull.base.label
-                },
-                {
-                    elem: 'cell',
-                    mods: { 'from-to': 'yes' },
-                    content: pull.head.label
+
+        return [
+            {
+                elem: 'cell',
+                elemMods: { type: 'avatar' },
+                content: {
+                    block : 'image',
+                    url : pull.head.user.avatar_url,
+                    width : 35,
+                    height : 35
                 }
-            ]
-        };
+            },
+            {
+                elem: 'cell',
+                elemMods: { type: 'number' },
+                content: pull.number
+            },
+            {
+                elem: 'cell',
+                elemMods: { type: 'title' },
+                content: pull.title.length > 50 ?
+                    pull.title.slice(0, 47) + '...' :
+                    pull.title
+            },
+            {
+                elem: 'cell',
+                elemMods: { type: 'from-to' },
+                content: pull.base.label
+            },
+            {
+                elem: 'cell',
+                elemMods: { type: 'from-to' },
+                content: pull.head.label
+            },
+            {
+                elem: 'cell',
+                elemMods: { type: 'more' },
+                content: {
+                    block: 'button',
+                    mods: { theme : 'islands', size : 's' },
+                    icon: {
+                        block: 'icon',
+                        url: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSIgdmlld0JveD0iMCAwIDE1IDE1Ij48ZyBmaWxsPSIjOTk5Ij48ZWxsaXBzZSBjeD0iMi41IiBjeT0iNy41IiByeD0iMS41IiByeT0iMS41Ii8+PGVsbGlwc2UgY3g9IjcuNSIgY3k9IjcuNSIgcng9IjEuNSIgcnk9IjEuNSIvPjxlbGxpcHNlIGN4PSIxMi41IiBjeT0iNy41IiByeD0iMS41IiByeT0iMS41Ii8+PC9nPjwvc3ZnPg=='
+                    }
+                }
+            }
+        ];
     })
 
 );
 
-block('pull-request').elem('cell').content()(function() {
-    return [{
-        elem: 'title',
-        tag: 'span',
-        content: this.ctx.content
-    }]
-});
+block('pull-request').elem('cell').tag()('td');
