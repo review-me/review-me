@@ -30,6 +30,12 @@ block('pull-request')(
             },
             {
                 elem: 'cell',
+                elemMods: { type: 'name' },
+                link: pull.base.repo.html_url,
+                name: pull.base.repo.name
+            },
+            {
+                elem: 'cell',
                 elemMods: { type: 'title' },
                 content: pull.title.length > 50 ?
                     pull.title.slice(0, 47) + '...' :
@@ -63,3 +69,12 @@ block('pull-request')(
 );
 
 block('pull-request').elem('cell').tag()('td');
+
+block('pull-request').elem('cell').elemMod('type', 'name').content()(function() {
+    return {
+        block: 'link',
+        url: this.ctx.link,
+        target : '_blank',
+        content: this.ctx.name
+    };
+});
