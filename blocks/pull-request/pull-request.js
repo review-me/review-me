@@ -1,7 +1,7 @@
 modules.define(
     'pull-request',
-    ['i-bem__dom', 'BEMHTML'],
-    function(provide, BEMDOM, BEMHTML){
+    ['i-bem__dom', 'BEMHTML', 'jquery'],
+    function(provide, BEMDOM, BEMHTML, $){
         provide(BEMDOM.decl(this.name, {
 
             onSetMod: {
@@ -10,7 +10,7 @@ modules.define(
                         login = this.params.login,
                         button = this.findBlockInside('button'),
                         popup = this.findBlockOutside('page').findBlockInside('popup'),
-                        contributors = BEMHTML.apply({ block: 'contributors', js: { repo: repo, login: login }  });
+                        contributors = BEMDOM.init(BEMHTML.apply({ block: 'contributors', js: { repo: repo, login: login }  }));
 
                     button.on('click', function() {
                         popup.setAnchor(button).setContent(contributors).setMod("visible", true);
