@@ -24,19 +24,18 @@
 
     display: inline-block;
 
-    border-radius: 50%;
-
-    height: 35px;
     width: 35px;
+    height: 35px;
 
+    border-radius: 50%;
     background-size: 100%;
 }
 
 .user__user-login
 {
-    display: inline-block;
-
     font-size: 15px;
+
+    display: inline-block;
 }
 
 .user__user-login .link
